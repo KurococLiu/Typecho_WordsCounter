@@ -6,9 +6,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * 文章和全站字数统计
  *
  * @package WordsCounter
- * @author Elatis
- * @version 1.0.0
- * @link https://ela.moe
+ * @author Kurococ Liu
+ * @version 1.0.1
+ * @link https://blog.lkurococ.top
  */
 
 class WordsCounter_Plugin implements Typecho_Plugin_Interface
@@ -111,13 +111,13 @@ class WordsCounter_Plugin implements Typecho_Plugin_Interface
         $unit = '';
         if($chars >= 10000) {
             $chars /= 10000;
-            $unit = 'W';
+            $unit = '万';
         } else if($chars >= 1000) {
             $chars /= 1000;
-            $unit = 'K';
+            $unit = '千';
         }
 
-        $out = sprintf('%.2lf %s',$chars, $unit);
+        $out = sprintf('%.2lf%s',$chars, $unit);
 
         echo $out;
     }
